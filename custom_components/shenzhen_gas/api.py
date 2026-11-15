@@ -7,6 +7,8 @@ from zoneinfo import ZoneInfo
 import aiohttp
 import async_timeout
 
+from .const import WECHAT_MINIPROGRAM_APPID
+
 
 class ShenzhenGasApiError(Exception):
     """Shenzhen Gas API error."""
@@ -61,7 +63,9 @@ class ShenzhenGasApi:
             "Content-Type": "application/x-www-form-urlencoded",
             "accountChannelId": self._account_channel_id,
             "ChannelTye": "WX_XCX",
-            "Referer": "https://servicewechat.com/wx6188bb06271804e1/326/page-frame.html",
+            "Referer": (
+                f"https://servicewechat.com/{WECHAT_MINIPROGRAM_APPID}/326/page-frame.html"
+            ),
             "User-Agent": (
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                 "AppleWebKit/537.36 MiniProgramEnv/Mac "
@@ -78,7 +82,9 @@ class ShenzhenGasApi:
             "ChannelTye": "WX_XCX",
             "Accept": "*/*",
             "Content-Type": "application/json",
-            "Referer": "https://servicewechat.com/wx6188bb06271804e1/326/page-frame.html",
+            "Referer": (
+                f"https://servicewechat.com/{WECHAT_MINIPROGRAM_APPID}/326/page-frame.html"
+            ),
             "User-Agent": (
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                 "AppleWebKit/537.36 MiniProgramEnv/Mac "
